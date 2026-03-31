@@ -389,7 +389,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 20
+  field of view: 10
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalPosition: {x: 0, y: 48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dadd82246d33282bbefedd1285b229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicLook
-  yOffset: 24
+  yOffset: 48
   Crosshair: {fileID: 2800000, guid: e47754563680c610f81967e8256da7bc, type: 3}
   player: {fileID: 1172621063}
 --- !u!114 &963194230
