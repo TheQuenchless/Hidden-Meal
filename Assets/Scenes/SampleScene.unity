@@ -604,13 +604,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 24, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   threshold: 0.5
   Color1: {r: 1, g: 1, b: 1, a: 1}
   Color2: {r: 0, g: 0, b: 0, a: 1}
-  downSamples: 1
+  downSamples: 2
   invert: 0
 --- !u!1 &1070911152
 GameObject:
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 1070911153}
   - component: {fileID: 1070911155}
   - component: {fileID: 1070911154}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,8 +746,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1172621066}
   - component: {fileID: 1172621064}
-  - component: {fileID: 1172621069}
   - component: {fileID: 1172621070}
+  - component: {fileID: 1172621069}
+  - component: {fileID: 1172621071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -868,7 +869,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1172621071}
+        m_TargetAssemblyTypeName: GrabbingThrowing, Assembly-CSharp
+        m_MethodName: OnGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
@@ -940,6 +953,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
+--- !u!114 &1172621071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172621063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264458d39685104e1b4396c02abfc3e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbingThrowing
+  maxDistance: 2.5
+  cam: {fileID: 963194227}
+  hands: {fileID: 1204115852}
 --- !u!1 &1204115851
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204115852}
   - component: {fileID: 1204115853}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1168,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e6fab6b941471efafb7c3824c6a927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Liquid
-  liquidLevel: 0.6
+  liquidLevel: 0.4
 --- !u!1 &1361178580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,9 +1382,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: c5259344323905bfd828bd616d5414f7, type: 2}
+    - target: {fileID: -259972160606440404, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: m_Name
       value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3154719795325769685, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1366,6 +1402,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 3c4fc8d8be971ddfcbb65ed72bdf3392, type: 2}
+    - target: {fileID: 8699652204047898494, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1382,7 +1422,7 @@ GameObject:
   - component: {fileID: 1457531157}
   - component: {fileID: 1457531159}
   - component: {fileID: 1457531158}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

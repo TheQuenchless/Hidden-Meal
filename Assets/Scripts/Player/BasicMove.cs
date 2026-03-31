@@ -104,8 +104,16 @@ public class BasicMove : MonoBehaviour
             }
             else
             {
-                rb.AddForce(wishVel * 10, ForceMode.Impulse);
-                rb.angularVelocity += wishVel.normalized;
+                if (rb.isKinematic)
+                {
+                    position += wishVel; // move fully through
+                    break;
+                }
+                else
+                {
+                    rb.AddForce(wishVel * 10, ForceMode.Impulse);
+                    rb.angularVelocity += wishVel.normalized;
+                }
             }
 
             // Store plane
