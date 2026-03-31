@@ -88,9 +88,19 @@ public class BasicMove : MonoBehaviour
             }
 
             // this is the collision
+            Rigidbody rb = hit.collider.attachedRigidbody;
             float dist = Mathf.Max(hit.distance - skinWidth, 0f);
-            Vector3 colVel = wishVel.normalized * dist;
-            position += colVel;
+            Vector3 colVel = Vector3.zero;
+            if (rb == null)
+            {
+                colVel = wishVel.normalized * dist;
+                position += colVel;
+            }
+            else
+            {
+                rb.AddForce(wishVel * 10, ForceMode.Impulse);
+                rb.angularVelocity += wishVel.normalized;
+            }
 
             // Store plane
             if (planeCount < planes.Length)
@@ -106,7 +116,14 @@ public class BasicMove : MonoBehaviour
                 float velIntoPlane = Vector3.Dot(newVel, normal);
                 if (velIntoPlane < 0f)
                 {
-                    newVel -= velIntoPlane * normal;
+                    if (rb == null)
+                    {
+                        newVel -= velIntoPlane * normal;
+                    }
+                    else
+                    {
+                        newVel -= velIntoPlane * normal * 0.1f;
+                    }
                 }
 
                 //Debug.Log($"colNormal: {normal} vel: {newVel} vel: {velocity}");

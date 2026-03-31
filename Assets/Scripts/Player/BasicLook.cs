@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class BasicLook : MonoBehaviour
 {
     [SerializeField] private float yOffset = 48f;
+    [SerializeField] private float zOffset = 6.5f;
     [SerializeField] private Texture2D Crosshair;
     [SerializeField] private GameObject player;
     BasicMove basicMove;
@@ -21,14 +22,14 @@ public class BasicLook : MonoBehaviour
     {
         Vector3 playerPos = basicMove.col.transform.position;
 
-        transform.position = Vector3.up * yOffset + playerPos;
+        transform.position = new Vector3(0, yOffset, -zOffset) + playerPos;
 
-        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y + 90f, Vector3.right);
+        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y + 75f, Vector3.right);
         Quaternion yaw = Quaternion.AngleAxis(mousePos.x, Vector3.forward); // use forward because cam is looking down
 
         transform.rotation = yaw * pitch;
 
-        Debug.Log($"mousePos: {mousePos}");
+        //Debug.Log($"mousePos: {mousePos}");
     }
 
     public void OnMouse(InputAction.CallbackContext context)
