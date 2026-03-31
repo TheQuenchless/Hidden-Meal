@@ -23,8 +23,8 @@ public class BasicLook : MonoBehaviour
 
         transform.position = Vector3.up * yOffset + playerPos;
 
-        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y * 2 + 90, Vector3.right);
-        Quaternion yaw = Quaternion.AngleAxis(mousePos.x * 2, Vector3.forward); // use forward because cam is looking down
+        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y + 90, Vector3.right);
+        Quaternion yaw = Quaternion.AngleAxis(mousePos.x, Vector3.forward); // use forward because cam is looking down
 
         transform.rotation = yaw * pitch;
     }
