@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e6fab6b941471efafb7c3824c6a927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Liquid
-  liquidLevel: 0.6
+  liquidLevel: 0.8
 --- !u!114 &1212355468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,8 +1213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wobble
   MaxWobble: 1
-  WobbleSpeed: 2
-  Recovery: 2
+  WobbleSpeed: 1
+  Recovery: 1
 --- !u!1 &1361178580
 GameObject:
   m_ObjectHideFlags: 0

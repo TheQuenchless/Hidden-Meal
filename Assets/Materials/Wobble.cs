@@ -46,8 +46,8 @@ public class Wobble : MonoBehaviour
 
 
         // add clamped velocity to wobble
-        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
-        wobbleAmountToAddZ += Mathf.Clamp((velocity.z + (angularVelocity.x * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
+        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.05f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
+        wobbleAmountToAddZ += Mathf.Clamp((velocity.z + (angularVelocity.x * 0.05f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
 
         // keep last position
         lastPos = transform.position;

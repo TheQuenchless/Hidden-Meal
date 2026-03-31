@@ -51,8 +51,8 @@ Shader "Custom/Liquid"
                 float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
                 float wobble =
-                    sin(worldPos.x * 2 + _Time.y) * _WobbleX +
-                    sin(worldPos.z * 2 + _Time.y) * _WobbleZ;
+                    sin(worldPos.x + _Time.y) * _WobbleX * 0.02 +
+                    sin(worldPos.z + _Time.y) * _WobbleZ * 0.02;
 
                 // add wobble to vertical position
                 float wobbledY = worldPos.y + wobble;
