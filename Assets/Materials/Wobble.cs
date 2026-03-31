@@ -23,7 +23,6 @@ public class Wobble : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
-        MaxWobble *= 0.01f;
     }
     private void Update()
     {
@@ -47,8 +46,8 @@ public class Wobble : MonoBehaviour
 
 
         // add clamped velocity to wobble
-        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble);
-        wobbleAmountToAddZ += Mathf.Clamp((velocity.z + (angularVelocity.x * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble);
+        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
+        wobbleAmountToAddZ += Mathf.Clamp((velocity.z + (angularVelocity.x * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble * 0.01f);
 
         // keep last position
         lastPos = transform.position;
