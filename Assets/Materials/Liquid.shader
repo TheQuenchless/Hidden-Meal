@@ -50,8 +50,15 @@ Shader "Custom/Liquid"
 
                 float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
-                // normalize localY from 0 (bottom) to 1 (top)
-                o.localY = (worldPos.y - _BoundsMinY) / (_BoundsMaxY - _BoundsMinY);
+                float wobble =
+                    sin(worldPos.x * 2 + _Time.y) * _WobbleX +
+                    sin(worldPos.z * 2 + _Time.y) * _WobbleZ;
+
+                // add wobble to vertical position
+                float wobbledY = worldPos.y + wobble;
+
+                // normalize
+                o.localY = (wobbledY - _BoundsMinY) / (_BoundsMaxY - _BoundsMinY);
 
                 return o;
             }
