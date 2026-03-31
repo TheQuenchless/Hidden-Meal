@@ -13,12 +13,9 @@ public class AudioManager : MonoBehaviour
     [Header("Volume")]
     [Range(0f, 1f)]
     public float mastervolume = 1f;
-    
     public bool volumeDirty = true;
     
     
-
-
     private void Start()
     {
         channelVolume = new float[audioChannels.Length];
@@ -26,15 +23,12 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < audioChannels.Length; i++)
         {
             channelVolume[i] = audioChannels[i].volume;
-        }
-        
-        
+        }       
     }
 
     void Update()
     {
-        if(volumeDirty){Updatevolume();}
-        
+        if(volumeDirty){Updatevolume();}        
     }
 
     private void Updatevolume()
@@ -55,8 +49,7 @@ public class AudioManager : MonoBehaviour
         {
             audioChannels[playerObjIndex].clip = audioClip[indexOfAudio];
             audioChannels[playerObjIndex].Play();    
-        }
-        
+        }       
     }
 
     public void PauseSound(int playerObjIndex)
@@ -76,7 +69,6 @@ public class AudioManager : MonoBehaviour
             volumeDirty = true;
         }
 
-        
     }
 
     public void addAudioPlayer(AudioSource audioSource)
