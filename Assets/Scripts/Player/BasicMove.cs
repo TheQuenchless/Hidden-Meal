@@ -9,15 +9,18 @@ public class BasicMove : MonoBehaviour
     [SerializeField] public float moveSpeed = 7f;
     [SerializeField] public float accel = 2f;
     [SerializeField] public float friction = 0.25f;
-    public BoxCollider col;
+    [NonSerialized] public BoxCollider col;
+    public GameObject model;
     private Vector2 moveInput;
     [NonSerialized] public Vector3 wishDir;
     [NonSerialized] public Vector3 velocity;
     private Vector3 wishVel;
     private int planeCount = 0;
+    MoveHands moveHands;
     void Start()
     {
         col = GetComponent<BoxCollider>();
+        moveHands = GetComponentInChildren<MoveHands>();
     }
 
     void Update()
@@ -29,6 +32,9 @@ public class BasicMove : MonoBehaviour
         ApplyFriction();
 
         velocity = MoveWithCollisions(velocity);
+
+        Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
+        model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);
 
         //Debug.Log($"velocity: {velocity.magnitude}");
     }
