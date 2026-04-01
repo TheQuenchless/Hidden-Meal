@@ -9,15 +9,18 @@ public class BasicMove : MonoBehaviour
     [SerializeField] public float moveSpeed = 7f;
     [SerializeField] public float accel = 2f;
     [SerializeField] public float friction = 0.25f;
-    public BoxCollider col;
+    [NonSerialized] public BoxCollider col;
+    public GameObject model;
     private Vector2 moveInput;
     [NonSerialized] public Vector3 wishDir;
     [NonSerialized] public Vector3 velocity;
     private Vector3 wishVel;
     private int planeCount = 0;
+    MoveHands moveHands;
     void Start()
     {
         col = GetComponent<BoxCollider>();
+        moveHands = GetComponentInChildren<MoveHands>();
     }
 
     void Update()
@@ -29,6 +32,9 @@ public class BasicMove : MonoBehaviour
         ApplyFriction();
 
         velocity = MoveWithCollisions(velocity);
+
+        Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
+        model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);
 
         //Debug.Log($"velocity: {velocity.magnitude}");
     }
@@ -88,9 +94,27 @@ public class BasicMove : MonoBehaviour
             }
 
             // this is the collision
+            Rigidbody rb = hit.collider.attachedRigidbody;
             float dist = Mathf.Max(hit.distance - skinWidth, 0f);
-            Vector3 colVel = wishVel.normalized * dist;
-            position += colVel;
+            Vector3 colVel = Vector3.zero;
+            if (rb == null)
+            {
+                colVel = wishVel.normalized * dist;
+                position += colVel;
+            }
+            else
+            {
+                if (rb.isKinematic)
+                {
+                    position += wishVel; // move fully through
+                    break;
+                }
+                else
+                {
+                    rb.AddForce(wishVel * 10, ForceMode.Impulse);
+                    rb.angularVelocity += wishVel.normalized;
+                }
+            }
 
             // Store plane
             if (planeCount < planes.Length)
@@ -106,7 +130,14 @@ public class BasicMove : MonoBehaviour
                 float velIntoPlane = Vector3.Dot(newVel, normal);
                 if (velIntoPlane < 0f)
                 {
-                    newVel -= velIntoPlane * normal;
+                    if (rb == null)
+                    {
+                        newVel -= velIntoPlane * normal;
+                    }
+                    else
+                    {
+                        newVel -= velIntoPlane * normal * 0.1f;
+                    }
                 }
 
                 //Debug.Log($"colNormal: {normal} vel: {newVel} vel: {velocity}");
