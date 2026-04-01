@@ -2849,6 +2849,53 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0000002, y: 0.65086806, z: 2.9112685}
   m_Center: {x: 0, y: 0.30861944, z: 1.0830842}
+--- !u!1 &1869004286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869004288}
+  - component: {fileID: 1869004287}
+  m_Layer: 0
+  m_Name: UIscripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1869004287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869004286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b7b5c4a0ffff74eac58cb050f794a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenMenuAnimation
+  panel: {fileID: 296089197}
+  menu: {fileID: 296089196}
+  duration: 0.3
+--- !u!4 &1869004288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869004286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 733.39417, y: -0.00002, z: 10397.864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916997748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,11 +3141,13 @@ SceneRoots:
   - {fileID: 1361178584}
   - {fileID: 1172621066}
   - {fileID: 963194228}
-  - {fileID: 1833931844}
-  - {fileID: 225340680}
   - {fileID: 1212355452}
   - {fileID: 1462096199}
   - {fileID: 438742883}
   - {fileID: 2008642057}
   - {fileID: 778060298}
   - {fileID: 954540250}
+  - {fileID: 1366419342}
+  - {fileID: 1426109789}
+  - {fileID: 1916997751}
+  - {fileID: 1869004288}
