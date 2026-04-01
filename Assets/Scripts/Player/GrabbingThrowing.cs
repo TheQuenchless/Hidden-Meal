@@ -76,7 +76,7 @@ public class GrabbingThrowing : MonoBehaviour
         rb.isKinematic = false;
         rb.useGravity = true;
 
-        rb.AddForce(new Vector3(moveHands.direction.x * 4, 5, moveHands.direction.z * 4), ForceMode.Impulse);
+        rb.AddForce(new Vector3(moveHands.direction.x * 2.5f, moveHands.direction.magnitude * 7f, moveHands.direction.z * 2.5f), ForceMode.Impulse);
 
         rb = null;
         heldItem = null;
