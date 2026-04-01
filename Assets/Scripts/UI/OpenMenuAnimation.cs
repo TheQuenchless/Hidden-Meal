@@ -44,17 +44,7 @@ public class OpenMenuAnimation : MonoBehaviour
         panel.anchoredPosition = startPosition;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        if (time < duration)
-        {
-            time += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, time / duration); // Smooth Bewegung
-            panel.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
-        }
-    }
+    
 
     void ToggleMenu()
     {
