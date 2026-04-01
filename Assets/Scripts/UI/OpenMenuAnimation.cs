@@ -4,35 +4,26 @@ using UnityEngine.InputSystem;
 
 public class OpenMenuAnimation : MonoBehaviour
 {
-    [Header("animations")]
-    public RectTransform panel;      
-    public float duration = 1f;   
+    [Header("animation")]
+    [SerializeField]public RectTransform panel;
+    [SerializeField]public GameObject menu;      
+    [SerializeField]public float duration = 1f;   
     private Vector2 startPosition;
     private Vector2 targetPosition;
     private float time;
 
-    [Header("input")]
-
-    private UiInputs input;
+    private PlayerInput playerInput;
     private bool isOpen = false;
     private bool isMoving = false;
 
     void Awake()
     {
-        input = new UiInputs();
-
-        input.UI.ToggleMenu.performed += ctx => ToggleMenu();
+        playerInput = FindObjectOfType<PlayerInput>();
+        playerInput.actions["toggleMenu"].performed += ctx => ToggleMenu();
     }
 
-    void OnEnable()
-    {
-        input.Enable();
-    }
 
-    void OnDisable()
-    {
-        input.Disable();
-    }
+    
 
     void Start()
     {
@@ -42,6 +33,7 @@ public class OpenMenuAnimation : MonoBehaviour
 
         startPosition = new Vector2(0, -parentRect.rect.height / 2f - panel.rect.height / 2f);
         panel.anchoredPosition = startPosition;
+        menu.SetActive(false);
     }
 
     
@@ -55,12 +47,14 @@ public class OpenMenuAnimation : MonoBehaviour
         Vector2 target = isOpen ? targetPosition : startPosition;
 
         StartCoroutine(AnimatePanel(target));
+        
 
     }
 
     IEnumerator AnimatePanel(Vector2 target)
     {
         isMoving = true;
+        if (isOpen) menu.SetActive(true);
 
         Vector2 current = panel.anchoredPosition;
         float time = 0f;
@@ -76,6 +70,7 @@ public class OpenMenuAnimation : MonoBehaviour
         }
 
         panel.anchoredPosition = target;
+        if (!isOpen) menu.SetActive(false);
         isMoving = false;
     }
 }
