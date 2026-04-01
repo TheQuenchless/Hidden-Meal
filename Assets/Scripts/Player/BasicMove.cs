@@ -33,8 +33,12 @@ public class BasicMove : MonoBehaviour
 
         velocity = MoveWithCollisions(velocity);
 
-        Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
-        model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);
+
+        if (moveHands.direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
+            model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);   
+        }
 
         //Debug.Log($"velocity: {velocity.magnitude}");
     }
