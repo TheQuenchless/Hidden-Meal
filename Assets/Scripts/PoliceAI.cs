@@ -112,7 +112,7 @@ public class PoliceAI : MonoBehaviour
         {
             if (!checkedBed)
             {
-                int choice = Random.Range(1, 3);
+                int choice = Random.Range(1, 4);
                 if (choice == 1)
                 {
                     targetPos =  kitchen.position;
@@ -192,7 +192,8 @@ public class PoliceAI : MonoBehaviour
 
     private void Loss()
     {
-        
+        // to see if you lose
+        Debug.Log("loss");
     }
 
     private Vector2 RotateVector(Vector2 v, float degrees)
