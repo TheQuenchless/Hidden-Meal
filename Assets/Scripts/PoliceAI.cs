@@ -12,9 +12,9 @@ public class PoliceAI : MonoBehaviour
     private float distance = 10f;
     private float coneAngle = 60f;
     private int rayCount = 20;
-    private float shiftTimer = 0f;
-    private int shiftStartTime = 120;
-    private int shiftEndTime = 140;
+    [HideInInspector]public float shiftTimer = 0f;
+    public int shiftStartTime = 120;
+    public int shiftEndTime = 140;
     private bool checkedBed = false;
     private bool checkedBath = false;
     Vector3 targetPos = new Vector3(-20, 0, 0);
