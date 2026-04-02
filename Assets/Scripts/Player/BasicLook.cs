@@ -16,7 +16,8 @@ public class BasicLook : MonoBehaviour
     {
         basicMove = player.GetComponent<BasicMove>();
 
-        Cursor.SetCursor(Crosshair, Vector2.zero, CursorMode.ForceSoftware);
+        Vector2 hotspot = new Vector2(Crosshair.width / 2f, Crosshair.height / 2f);
+        Cursor.SetCursor(Crosshair, hotspot, CursorMode.ForceSoftware);
     }
 
     void Update()

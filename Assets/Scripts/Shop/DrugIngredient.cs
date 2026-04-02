@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class DrugIngredient : MonoBehaviour
 {
-    public Collider counter;
     public int cost = 10;
     public GameObject BOUGHT;
     public GameObject POOR;
 
     private Wallet wallet;
+    private Collider counter;
     [NonSerialized] public bool bought = false;
 
-    void Start()
+    void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         wallet = player.GetComponent<Wallet>();
+
+        GameObject counterObj = GameObject.Find("Counter");
+        counter = counterObj.GetComponent<Collider>();
     }
 
     void OnCollisionEnter(Collision collision)

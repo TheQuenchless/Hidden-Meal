@@ -23,15 +23,17 @@ public class Restock : MonoBehaviour
             timer = 0f;
             RestockItems();
         }
+        Debug.Log($"timer: {timer}");
     }
 
     void RestockItems()
     {
-        // Destroy any bought objects first
         DrugIngredient[] existingDrugs = Object.FindObjectsByType<DrugIngredient>(FindObjectsSortMode.None);
+
         foreach (DrugIngredient d in existingDrugs)
         {
-            if (d.bought)
+            if (!d.bought && !d.gameObject.scene.IsValid()) continue; // skip prefab assets
+            if (!d.bought)
             {
                 Destroy(d.gameObject);
             }

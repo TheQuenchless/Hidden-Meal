@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4349849623139438296
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 256bd4f2032766f118c42d5225216759, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f531295d2990f8d8c8bcd944138d135b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a327ac7d50290b96beee60f8823eb10, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      propertyPath: m_Name
+      value: DrugIngredients
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4384840386653686900}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2461694556337815451}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7248984913830643092}
+  m_SourcePrefab: {fileID: 100100000, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+--- !u!1 &3502864818880836489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e29d57dc0f133bb1ad4538ab7bb2adc, type: 3}
+  m_PrefabInstance: {fileID: 4349849623139438296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4384840386653686900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502864818880836489}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2461694556337815451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502864818880836489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cff3babc663b0f7bbf3fb2335de1b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrugIngredient
+  cost: 10
+  BOUGHT: {fileID: 1896619444011662975, guid: 9aa58ae426e1ea051b9b82ce118a36af, type: 3}
+  POOR: {fileID: 8118705468055592536, guid: c1e6ab375f3a015439fe27da5be6db11, type: 3}
+--- !u!65 &7248984913830643092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502864818880836489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48000014, y: 0.48000017, z: 0.28163671}
+  m_Center: {x: 0, y: 0, z: -0.000000059604645}
