@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class GrabbingThrowing : MonoBehaviour
 {
     [SerializeField] private float maxDistance = 2.5f;
-    [SerializeField] private Camera cam;
     [SerializeField] private Transform hands;
     private Transform player;
     BasicLook basicLook;
@@ -15,7 +14,7 @@ public class GrabbingThrowing : MonoBehaviour
     Rigidbody rb;
     void Start()
     {
-        basicLook = cam.GetComponent<BasicLook>();
+        basicLook = Camera.main.GetComponent<BasicLook>();
         moveHands = GetComponentInChildren<MoveHands>();
         player = GetComponentInParent<Transform>();
     }
@@ -49,7 +48,7 @@ public class GrabbingThrowing : MonoBehaviour
     {
         if (heldItem != null) return;
 
-        Ray ray = cam.ScreenPointToRay(basicLook.trueMousePos);
+        Ray ray = Camera.main.ScreenPointToRay(basicLook.trueMousePos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))

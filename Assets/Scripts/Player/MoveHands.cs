@@ -3,13 +3,12 @@ using UnityEngine;
 public class MoveHands : MonoBehaviour
 {
     [SerializeField] private float maxDistance = 0.67f;
-    [SerializeField] private Camera cam;
     [SerializeField] private Transform player;
     BasicLook basicLook;
     public Vector3 direction;
     void Start()
     {
-        basicLook = cam.GetComponent<BasicLook>();
+        basicLook = Camera.main.GetComponent<BasicLook>();
     }
 
     void Update()
