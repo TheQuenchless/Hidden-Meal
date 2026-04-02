@@ -51,6 +51,8 @@ public class OpenMenuAnimation : MonoBehaviour
 
     }
 
+    public void ButtonClick(){ToggleMenu();}
+
     IEnumerator AnimatePanel(Vector2 target)
     {
         isMoving = true;
