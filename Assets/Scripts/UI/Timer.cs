@@ -10,7 +10,6 @@ public class Timer : MonoBehaviour
     private float  timeleft;
     private int remainingSeconds;
 
-
     void Start()
     {
         startshift = police.shiftStartTime;
