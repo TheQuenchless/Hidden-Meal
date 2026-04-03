@@ -33,18 +33,13 @@ public class DrugIngredient : MonoBehaviour
                     wallet.money -= cost;
                     bought = true;
 
-                    Quaternion rot = Quaternion.LookRotation(Camera.main.transform.forward);
-
-                    GameObject popup = Instantiate(BOUGHT, transform.position, rot);
+                    GameObject popup = Instantiate(BOUGHT, transform.position, Quaternion.identity);
                     Destroy(popup, 1f);
                     Debug.Log("BOUGHT");
                 }
                 else
                 {
-                    
-                    Quaternion rot = Quaternion.LookRotation(Camera.main.transform.forward);
-
-                    GameObject popup = Instantiate(POOR, transform.position, rot);
+                    GameObject popup = Instantiate(POOR, transform.position, Quaternion.identity);
                     Destroy(popup, 1f);
                     Debug.Log("POOR");
                 }

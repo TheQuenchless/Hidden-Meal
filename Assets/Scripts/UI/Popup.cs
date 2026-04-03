@@ -7,5 +7,8 @@ public class Popup : MonoBehaviour
     {
         transform.position += Vector3.up * speed;
         speed *= 0.9f;
+
+        transform.LookAt(Camera.main.transform.position);
+        transform.Rotate(0, 180, 0);
     }
 }

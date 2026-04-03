@@ -26,7 +26,16 @@ public class BasicMove : MonoBehaviour
     void Update()
     {
         // get move direction
-        wishDir = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        wishDir = (forward * moveInput.y + right * moveInput.x).normalized;
 
         Accelerate();
         ApplyFriction();
@@ -37,7 +46,7 @@ public class BasicMove : MonoBehaviour
         if (moveHands.direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
-            model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);   
+            model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
         //Debug.Log($"velocity: {velocity.magnitude}");
@@ -147,6 +156,7 @@ public class BasicMove : MonoBehaviour
                 //Debug.Log($"colNormal: {normal} vel: {newVel} vel: {velocity}");
             }
 
+            newVel.y = 0;
             wishVel = newVel;
         }
 

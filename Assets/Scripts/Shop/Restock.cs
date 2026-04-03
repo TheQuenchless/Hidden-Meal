@@ -23,7 +23,8 @@ public class Restock : MonoBehaviour
             timer = 0f;
             RestockItems();
         }
-        Debug.Log($"timer: {timer}");
+        
+        //Debug.Log($"timer: {timer}");
     }
 
     void RestockItems()
