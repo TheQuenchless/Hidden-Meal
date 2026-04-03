@@ -1558,7 +1558,7 @@ GameObject:
   - component: {fileID: 577152139}
   - component: {fileID: 577152141}
   - component: {fileID: 577152142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HouseSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}

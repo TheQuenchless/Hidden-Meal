@@ -11,6 +11,9 @@ public class JunkieAI : MonoBehaviour
     [SerializeField] private GameObject YOINK;
     [SerializeField] private GameObject BOUGHT;
     [SerializeField] private HouseColScript houseTrigger;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buySound;
+    [SerializeField] private AudioClip yoinkSound;
 
     private float shiftTimer;
     private float shiftStartTime;
@@ -80,9 +83,12 @@ public class JunkieAI : MonoBehaviour
     {
         houseTrigger.nonCollidingTargets.Remove(obj);
 
-        Destroy(obj);
         GameObject popup = Instantiate(YOINK, transform.position, Quaternion.identity);
         Destroy(popup, 1f);
+
+        audioSource.PlayOneShot(yoinkSound);
+
+        Destroy(obj);
     }
 
     private void Buy(GameObject obj)
@@ -96,9 +102,12 @@ public class JunkieAI : MonoBehaviour
 
         wallet.money += cost;
 
-        Destroy(obj);
         GameObject popup = Instantiate(BOUGHT, transform.position, Quaternion.identity);
         Destroy(popup, 1f);
+
+        audioSource.PlayOneShot(buySound);
+
+        Destroy(obj);
     }
 
     private void MoveToTarget()
