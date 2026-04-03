@@ -33,7 +33,6 @@ public class Timer : MonoBehaviour
     {
         timeleft = Mathf.Max(0,startshift - shifttimer);
         remainingSeconds = Mathf.CeilToInt(timeleft);
-        
         text.text = remainingSeconds.ToString();
     }
 }
