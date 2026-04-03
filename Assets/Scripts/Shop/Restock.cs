@@ -5,11 +5,12 @@ public class Restock : MonoBehaviour
 {
     public GameObject drugIngredients;
     public Transform[] spawnPoints;
-    public float restockInterval = 140f;
+    public float restockInterval;
 
     private float timer = 0;
     void Start()
     {
+        restockInterval = GameObject.Find("Policeman").GetComponent<PoliceAI>().shiftEndTime;
         RestockItems();
     }
 

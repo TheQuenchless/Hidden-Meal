@@ -13,11 +13,8 @@ public class DrugIngredient : MonoBehaviour
 
     void Awake()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        wallet = player.GetComponent<Wallet>();
-
-        GameObject counterObj = GameObject.Find("Counter");
-        counter = counterObj.GetComponent<Collider>();
+        wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+        counter = GameObject.Find("Counter").GetComponent<Collider>();
     }
 
     void OnCollisionEnter(Collision collision)
