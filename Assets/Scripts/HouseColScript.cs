@@ -15,9 +15,7 @@ public class HouseColScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
-        {
             nonCollidingTargets.Remove(other.gameObject);
-        }
     }
 
     private void OnTriggerExit(Collider other)

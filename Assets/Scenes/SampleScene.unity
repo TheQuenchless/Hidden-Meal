@@ -739,15 +739,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4960afacbdcfea947b0dadfa577e2ec5, type: 2}
-  m_sharedMaterial: {fileID: 152774657876879292, guid: 4960afacbdcfea947b0dadfa577e2ec5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
+  m_sharedMaterial: {fileID: -4853066402462003479, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -764,8 +764,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1555,9 +1555,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577152140}
-  - component: {fileID: 577152139}
   - component: {fileID: 577152141}
   - component: {fileID: 577152142}
+  - component: {fileID: 577152143}
   m_Layer: 2
   m_Name: HouseSpace
   m_TagString: Untagged
@@ -1565,28 +1565,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &577152139
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577152138}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2620597161825683043, guid: d93fc1c86c264fbf4a41f7e30f8ea759, type: 3}
 --- !u!4 &577152140
 Transform:
   m_ObjectHideFlags: 0
@@ -1643,6 +1621,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &577152143
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577152138}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2620597161825683043, guid: d93fc1c86c264fbf4a41f7e30f8ea759, type: 3}
 --- !u!1 &594422277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,7 +4532,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5163,7 +5163,7 @@ MonoBehaviour:
   map: {fileID: 778060297}
   speed: 3
   shiftTimer: 0
-  shiftStartTime: 120
+  shiftStartTime: 10
   shiftEndTime: 145
 --- !u!1001 &2014484604
 PrefabInstance:
@@ -5581,10 +5581,10 @@ SceneRoots:
   - {fileID: 1128510609}
   - {fileID: 829710370}
   - {fileID: 3745622627681918036}
-  - {fileID: 1366419342}
-  - {fileID: 1426109789}
-  - {fileID: 1916997751}
-  - {fileID: 1869004288}
   - {fileID: 1355756991}
   - {fileID: 1973756783}
   - {fileID: 577152140}
+  - {fileID: 1366419342}
+  - {fileID: 1869004288}
+  - {fileID: 1916997751}
+  - {fileID: 1426109789}

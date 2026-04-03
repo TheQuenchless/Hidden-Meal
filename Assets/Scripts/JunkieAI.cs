@@ -114,16 +114,25 @@ public class JunkieAI : MonoBehaviour
     {
         targetPos = new Vector3(targetPos.x, 0.5f, targetPos.z);
         Vector3 direction = targetPos - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-        if (direction != Vector3.zero)
+
+        if (direction.sqrMagnitude > 0.0001f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation * Quaternion.Euler(-90f, 0f, 0f), Time.deltaTime * 5f);
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation, 
+                lookRotation * Quaternion.Euler(-90f, 0f, 0f), 
+                Time.deltaTime * 5f
+            );
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-90f, 0f, -15f), Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation, 
+                Quaternion.Euler(-90f, 0f, -15f), 
+                Time.deltaTime * 5f
+            );
         }
     }
 }
