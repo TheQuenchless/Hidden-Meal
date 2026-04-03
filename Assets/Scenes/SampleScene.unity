@@ -739,8 +739,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4960afacbdcfea947b0dadfa577e2ec5, type: 2}
-  m_sharedMaterial: {fileID: 152774657876879292, guid: 4960afacbdcfea947b0dadfa577e2ec5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
+  m_sharedMaterial: {fileID: -4853066402462003479, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5581,10 +5581,10 @@ SceneRoots:
   - {fileID: 1128510609}
   - {fileID: 829710370}
   - {fileID: 3745622627681918036}
+  - {fileID: 1355756991}
+  - {fileID: 1973756783}
+  - {fileID: 577152140}
   - {fileID: 1366419342}
   - {fileID: 1426109789}
   - {fileID: 1916997751}
   - {fileID: 1869004288}
-  - {fileID: 1355756991}
-  - {fileID: 1973756783}
-  - {fileID: 577152140}
