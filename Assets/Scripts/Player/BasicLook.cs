@@ -5,9 +5,8 @@ using UnityEngine.InputSystem;
 
 public class BasicLook : MonoBehaviour
 {
-    [SerializeField] private float height = 48f;
-    [SerializeField] private float length = 13f;
-    [SerializeField] private float downRotation = 45f;
+    [SerializeField] private float height = 20f;
+    [SerializeField] private float length = 20f;
     [SerializeField] private Texture2D Crosshair;
     [SerializeField] private GameObject player;
     BasicMove basicMove;
@@ -69,7 +68,7 @@ public class BasicLook : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("fuckyoufuckyoufuckyoufuckyoufucjoyoduckyoufuckyoufuckyoufucktoufuckyou");
+            //Debug.Log("fuckyoufuckyoufuckyoufuckyoufucjoyoduckyoufuckyoufuckyoufucktoufuckyou");
             turnLeft = true;
         }
     }
