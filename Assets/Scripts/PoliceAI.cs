@@ -10,7 +10,7 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private float speed = 3f;
     private Transform police;
     private float distance = 10f;
-    private float coneAngle = 60f;
+    private float coneAngle = 75f;
     private int rayCount = 20;
     [HideInInspector]public float shiftTimer = 0f;
     public int shiftStartTime = 120;
@@ -169,22 +169,25 @@ public class PoliceAI : MonoBehaviour
 
     private RaycastHit Observe()
     {
-        Vector3 origin = transform.position;
+        Vector3 origin = transform.position + Vector3.up * 0.501f;
         float halfAngle = coneAngle / 2f;
 
         RaycastHit hit = default;
- 
+
         for (int i = 0; i < rayCount; i++)
         {
-            // Interpolate angle across the cone
             float t = (float)i / (rayCount - 1);
             float angle = Mathf.Lerp(-halfAngle, halfAngle, t);
 
-            // Rotate forward direction
-            Vector3 direction = RotateVector(transform.right, angle);
+            // Rotate forward around the up axis for horizontal sweep
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * -transform.forward;
 
-            Physics.Raycast(origin, direction, out RaycastHit rayHit, distance);
-            hit = rayHit;
+            if (Physics.SphereCast(origin, 1f, direction, out RaycastHit rayHit, distance))
+            {
+                hit = rayHit;
+            }
+
+            Debug.DrawRay(origin, direction.normalized * distance, Color.red, 0.1f);
         }
 
         return hit;
@@ -192,8 +195,7 @@ public class PoliceAI : MonoBehaviour
 
     private void Loss()
     {
-        // to see if you lose
-        Debug.Log("loss");
+        Debug.Log("YOU LOST /n SO BAD /n LEAVE");
     }
 
     private Vector2 RotateVector(Vector2 v, float degrees)

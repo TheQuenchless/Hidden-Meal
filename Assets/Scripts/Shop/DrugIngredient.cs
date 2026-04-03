@@ -6,6 +6,8 @@ public class DrugIngredient : MonoBehaviour
     public int cost = 10;
     public GameObject BOUGHT;
     public GameObject POOR;
+    [SerializeField] private AudioClip buySound;
+    private AudioSource audioSource;
 
     private Wallet wallet;
     private Collider counter;
@@ -13,11 +15,10 @@ public class DrugIngredient : MonoBehaviour
 
     void Awake()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        wallet = player.GetComponent<Wallet>();
+        wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+        counter = GameObject.Find("Counter").GetComponent<Collider>();
 
-        GameObject counterObj = GameObject.Find("Counter");
-        counter = counterObj.GetComponent<Collider>();
+        audioSource = GameObject.Find("Audio").GetComponentInChildren<AudioSource>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -35,7 +36,8 @@ public class DrugIngredient : MonoBehaviour
 
                     GameObject popup = Instantiate(BOUGHT, transform.position, Quaternion.identity);
                     Destroy(popup, 1f);
-                    Debug.Log("BOUGHT");
+
+                    audioSource.PlayOneShot(buySound);
                 }
                 else
                 {

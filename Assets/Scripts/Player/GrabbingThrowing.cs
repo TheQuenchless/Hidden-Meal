@@ -5,6 +5,8 @@ public class GrabbingThrowing : MonoBehaviour
 {
     [SerializeField] private float maxDistance = 2.5f;
     [SerializeField] private Transform hands;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip throwSound;
     private Transform player;
     BasicLook basicLook;
     MoveHands moveHands;
@@ -76,6 +78,8 @@ public class GrabbingThrowing : MonoBehaviour
         rb.useGravity = true;
 
         rb.AddForce(new Vector3(moveHands.direction.x * 2.5f, moveHands.direction.magnitude * 7f, moveHands.direction.z * 2.5f), ForceMode.Impulse);
+
+        audioSource.PlayOneShot(throwSound);
 
         rb = null;
         heldItem = null;

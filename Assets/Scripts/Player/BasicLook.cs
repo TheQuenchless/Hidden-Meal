@@ -5,11 +5,12 @@ using UnityEngine.InputSystem;
 
 public class BasicLook : MonoBehaviour
 {
-    [SerializeField] private float height = 48f;
-    [SerializeField] private float length = 13f;
-    [SerializeField] private float downRotation = 45f;
+    [SerializeField] private float height = 20f;
+    [SerializeField] private float length = 20f;
     [SerializeField] private Texture2D Crosshair;
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip turnSound;
     BasicMove basicMove;
     private Vector2 mousePos;
     [NonSerialized] public Vector2 trueMousePos;
@@ -31,11 +32,13 @@ public class BasicLook : MonoBehaviour
         if (turnLeft)
         {
             orbitAngle -= 90f;
+            audioSource.PlayOneShot(turnSound);
             turnLeft = false;
         }
         else if (turnRight)
         {
             orbitAngle += 90f;
+            audioSource.PlayOneShot(turnSound);
             turnRight = false;
         }
 
@@ -69,7 +72,7 @@ public class BasicLook : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("fuckyoufuckyoufuckyoufuckyoufucjoyoduckyoufuckyoufuckyoufucktoufuckyou");
+            //Debug.Log("fuckyoufuckyoufuckyoufuckyoufucjoyoduckyoufuckyoufuckyoufucktoufuckyou");
             turnLeft = true;
         }
     }
