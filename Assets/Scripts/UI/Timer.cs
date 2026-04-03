@@ -11,7 +11,6 @@ public class Timer : MonoBehaviour
     private int remainingSeconds;
 
 
-
     void Start()
     {
         startshift = police.shiftStartTime;
