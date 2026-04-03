@@ -37,7 +37,7 @@ public class BasicMove : MonoBehaviour
         if (moveHands.direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveHands.direction);
-            model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);   
+            model.transform.rotation = Quaternion.Slerp(model.transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
         //Debug.Log($"velocity: {velocity.magnitude}");
@@ -147,6 +147,7 @@ public class BasicMove : MonoBehaviour
                 //Debug.Log($"colNormal: {normal} vel: {newVel} vel: {velocity}");
             }
 
+            newVel.y = 0;
             wishVel = newVel;
         }
 
