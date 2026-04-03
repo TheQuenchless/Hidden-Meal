@@ -26,7 +26,16 @@ public class BasicMove : MonoBehaviour
     void Update()
     {
         // get move direction
-        wishDir = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        wishDir = (forward * moveInput.y + right * moveInput.x).normalized;
 
         Accelerate();
         ApplyFriction();

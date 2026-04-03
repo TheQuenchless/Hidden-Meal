@@ -5,13 +5,17 @@ using UnityEngine.InputSystem;
 
 public class BasicLook : MonoBehaviour
 {
-    [SerializeField] private float yOffset = 48f;
-    [SerializeField] private float zOffset = 13f;
+    [SerializeField] private float height = 48f;
+    [SerializeField] private float length = 13f;
+    [SerializeField] private float downRotation = 45f;
     [SerializeField] private Texture2D Crosshair;
     [SerializeField] private GameObject player;
     BasicMove basicMove;
     private Vector2 mousePos;
-    public Vector2 trueMousePos;
+    [NonSerialized] public Vector2 trueMousePos;
+    private bool turnLeft;
+    private bool turnRight;
+    private float orbitAngle = -90f;
     void Start()
     {
         basicMove = player.GetComponent<BasicMove>();
@@ -24,12 +28,32 @@ public class BasicLook : MonoBehaviour
     {
         Vector3 playerPos = basicMove.col.transform.position;
 
-        transform.position = new Vector3(0, yOffset, -zOffset) + playerPos;
+        if (turnLeft)
+        {
+            orbitAngle -= 90f;
+            turnLeft = false;
+        }
+        else if (turnRight)
+        {
+            orbitAngle += 90f;
+            turnRight = false;
+        }
 
-        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y + 45f, Vector3.right);
-        Quaternion yaw = Quaternion.AngleAxis(mousePos.x, Vector3.forward); // use forward because cam is looking down
+        float angleRad = orbitAngle * Mathf.Deg2Rad;
 
-        transform.rotation = yaw * pitch;
+        float x = Mathf.Cos(angleRad) * length;
+        float z = Mathf.Sin(angleRad) * length;
+
+        Vector3 targetPos = playerPos + new Vector3(x, height, z);
+        transform.position = Vector3.Lerp(transform.position, targetPos, 5f * Time.deltaTime);
+
+        Quaternion lookRot = Quaternion.LookRotation(playerPos - transform.position);
+
+        Quaternion pitch = Quaternion.AngleAxis(-mousePos.y, Vector3.right);
+        Quaternion yaw = Quaternion.AngleAxis(mousePos.x, Vector3.up); // adjust axis if needed
+
+        Quaternion finalRot = lookRot * yaw * pitch;
+        transform.rotation = finalRot;
 
         //Debug.Log($"mousePos: {mousePos}");
     }
@@ -39,5 +63,22 @@ public class BasicLook : MonoBehaviour
         trueMousePos = Mouse.current.position.ReadValue();
         mousePos.x = Mouse.current.position.ReadValue().x / Screen.width - 0.5f;
         mousePos.y = Mouse.current.position.ReadValue().y / Screen.height - 0.5f;
+    }
+
+    public void TurnLeft(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("fuckyoufuckyoufuckyoufuckyoufucjoyoduckyoufuckyoufuckyoufucktoufuckyou");
+            turnLeft = true;
+        }
+    }
+
+    public void TurnRight(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            turnRight = true;
+        }
     }
 }
