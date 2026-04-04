@@ -98,9 +98,9 @@ public class JunkieAI : MonoBehaviour
     {
         houseTrigger.nonCollidingTargets.Remove(obj);
 
-        float costFac = obj.GetComponentInChildren<Liquid>().liquidLevel;
+        float liquid = Mathf.Max(obj.GetComponentInChildren<Liquid>().liquidLevel, 0.05f); // 5% liquid lowest
+        float costFac = 1f - liquid; // higher when liquid is lower
         int baseCost = 30;
-
         int cost = Mathf.RoundToInt(Mathf.Lerp(0, baseCost, costFac));
 
         wallet.money += cost;

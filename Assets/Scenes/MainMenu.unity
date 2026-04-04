@@ -380,10 +380,39 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'we ran out of time for a proper introduction, so you get a text explaination
+    instead.
+
+
+    The loop is simple.
+
+
+    1. Go to the shop above to buy drug
+    ingredients.
+
+    2. Go back home and [insert way to make drugs].
+
+    3. Hide
+    drugs inside your house until the timer runs out.
+
+    4. Wait for the police
+    to search your house.
+
+    5. Repeat until you die =)
+
+
+    Walking - WASD
+
+    Throwing
+    - LMB
+
+    Turning Camera - Q/E
+
+
+    pretty much it.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
+  m_sharedMaterial: {fileID: -4853066402462003479, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
