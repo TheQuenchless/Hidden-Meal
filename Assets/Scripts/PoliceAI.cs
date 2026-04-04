@@ -163,7 +163,7 @@ public class PoliceAI : MonoBehaviour
         if (dir != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(-dir);
-            police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 5f);
+            police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
         }
     }
 
