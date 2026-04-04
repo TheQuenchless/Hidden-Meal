@@ -21,6 +21,7 @@ public class JunkieAI : MonoBehaviour
     private Vector3 targetPos;
     private PoliceAI police;
     private Wallet wallet;
+    private Rigidbody rb;
 
     void Start()
     {
@@ -28,6 +29,8 @@ public class JunkieAI : MonoBehaviour
         shiftStartTime = police.shiftStartTime;
 
         wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+
+        rb = GetComponent<Rigidbody>();
 
         idlePos = transform.position;
     }
@@ -117,8 +120,9 @@ public class JunkieAI : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (direction.sqrMagnitude > 0.0001f)
+        if (direction.sqrMagnitude > 0.1f)
         {
+            rb.isKinematic = true;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, 
@@ -128,6 +132,7 @@ public class JunkieAI : MonoBehaviour
         }
         else
         {
+            rb.isKinematic = false;
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, 
                 Quaternion.Euler(-90f, 0f, -15f), 
