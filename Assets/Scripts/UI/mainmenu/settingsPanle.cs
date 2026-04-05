@@ -126,16 +126,16 @@ public class settingsPanle : MonoBehaviour
         if (string.IsNullOrEmpty(input))
             return false;
 
-        // Falls ein # am Anfang ist → entfernen
+        
         if (input.StartsWith("#"))
             input = input.Substring(1);
 
-        // Gültige Länge: 3, 4, 6 oder 8 Zeichen
+        
         if (input.Length != 3 && input.Length != 4 &&
             input.Length != 6 && input.Length != 8)
             return false;
 
-        // Prüfen ob alle Zeichen Hex-Zeichen sind
+        
         foreach (char c in input)
         {
             bool isHex = 
