@@ -696,7 +696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -493, y: 164}
+  m_AnchoredPosition: {x: -194, y: 164}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124036285
@@ -719,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lighter color:'
+  m_text: 'Color1:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
   m_sharedMaterial: {fileID: -4853066402462003479, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
@@ -3913,7 +3913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -493, y: -60.999992}
+  m_AnchoredPosition: {x: -194.00003, y: -60.999992}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170811113
@@ -3936,7 +3936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Darker color:'
+  m_text: 'Color2:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}
   m_sharedMaterial: {fileID: -4853066402462003479, guid: 72e14db1bff80b74da07e5aa82fe005f, type: 2}

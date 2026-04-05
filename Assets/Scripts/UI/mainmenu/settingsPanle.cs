@@ -31,8 +31,8 @@ public class settingsPanle : MonoBehaviour
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("sfxVolum", 1f);
         musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolum", 1f);
 
-        Debug.Log(PlayerPrefs.GetString("color1"));
-        Debug.Log(PlayerPrefs.GetString("color2"));
+        lightcolore.text = PlayerPrefs.GetString("color1","#FFFFFF");
+        darkcolore.text = PlayerPrefs.GetString("color2","#000000");
         UpdateShader(PlayerPrefs.GetString("color1","#FFFFFF"),PlayerPrefs.GetString("color2","#000000"));
 
         mainVolumeSlider.onValueChanged.AddListener(OnSliderChanged);
