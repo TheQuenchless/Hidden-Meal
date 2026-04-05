@@ -1,14 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class buttonstart : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialpanle;
     [SerializeField] private GameObject settingspanle;
-    [SerializeField] private GameObject quitpanle;
+    [SerializeField] private SceneLoader sl;
+    
 
     private void CloseMenuePanles ()
     {
-        quitpanle.SetActive(false);
         tutorialpanle.SetActive(false);
         settingspanle.SetActive(false);
     }
@@ -16,13 +17,10 @@ public class buttonstart : MonoBehaviour
     void Start()
     {
         CloseMenuePanles();
+        sl.Loadscene(1);
     }
 
-    public void Quitbtn()
-    {
-        CloseMenuePanles();
-        quitpanle.SetActive(true);
-    }
+    
 
     public void Tutorialbtn()
     {
@@ -33,6 +31,7 @@ public class buttonstart : MonoBehaviour
     public void Playbtn()
     {
         CloseMenuePanles();
+
     }
 
     public void Settingbtn()

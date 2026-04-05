@@ -18,6 +18,7 @@ public class tutorialPanle : MonoBehaviour
     void Start()
     {
         maxPage = pages.Length;
+        UpdatePage();
     }
 
 
