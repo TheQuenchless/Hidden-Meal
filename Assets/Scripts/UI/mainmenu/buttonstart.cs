@@ -17,7 +17,7 @@ public class buttonstart : MonoBehaviour
     void Start()
     {
         CloseMenuePanles();
-        sl.Loadscene(1);
+        
     }
 
     
@@ -31,7 +31,7 @@ public class buttonstart : MonoBehaviour
     public void Playbtn()
     {
         CloseMenuePanles();
-
+        sl.Loadscene(1);
     }
 
     public void Settingbtn()
