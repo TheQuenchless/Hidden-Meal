@@ -811,6 +811,7 @@ GameObject:
   - component: {fileID: 181620679}
   - component: {fileID: 181620681}
   - component: {fileID: 181620682}
+  - component: {fileID: 181620683}
   m_Layer: 0
   m_Name: scripts
   m_TagString: Untagged
@@ -894,6 +895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::buttonstart
   tutorialpanle: {fileID: 872186057}
   settingspanle: {fileID: 2102559496}
+  sl: {fileID: 181620683}
 --- !u!114 &181620682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,8 +915,20 @@ MonoBehaviour:
   sfxVolumeSlider: {fileID: 434404174}
   musicVolumeSlider: {fileID: 589175454}
   lightcolore: {fileID: 364361387}
-  darkcolore: {fileID: 0}
+  darkcolore: {fileID: 1394612422}
   shader: {fileID: 2017912072}
+--- !u!114 &181620683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181620678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a0fcda7519a31409c128c5a67f9ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1 &238374219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,7 +2342,6 @@ RectTransform:
   m_Children:
   - {fileID: 2137512439}
   - {fileID: 79328068}
-  - {fileID: 403190924}
   - {fileID: 999422418}
   - {fileID: 966775770}
   - {fileID: 872186058}
