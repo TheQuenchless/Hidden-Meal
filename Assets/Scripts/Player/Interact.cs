@@ -39,7 +39,7 @@ public class Interact : MonoBehaviour
 
         float distance = (counter.bounds.center - transform.position).sqrMagnitude;
 
-        if (distance < 4f)
+        if (distance < 9f)
         {
             if (!billboard)
             {
@@ -56,7 +56,7 @@ public class Interact : MonoBehaviour
             }
         }
 
-        if (interactQueued)
+        if (interactQueued && distance < 9f)
         {
             if (held == null)
             {

@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Hidden-Meal.slnx"
+    "dotnet.defaultSolution": "Hidden Meal.slnx"
 }

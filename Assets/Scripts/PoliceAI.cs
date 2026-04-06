@@ -9,15 +9,15 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private float speed = 3f;
     private Transform police;
-    private float distance = 10f;
-    private float coneAngle = 75f;
-    private int rayCount = 20;
+    private float distance = 25f;
+    private float coneAngle = 80f;
+    private int rayCount = 80;
     [HideInInspector]public float shiftTimer = 0f;
     public int shiftStartTime = 120;
     public int shiftEndTime = 140;
     private bool checkedBed = false;
     private bool checkedBath = false;
-    Vector3 targetPos = new Vector3(-20, 0, 0);
+    Vector3 targetPos;
     private Dictionary<string, Transform> points;
     void Start()
     {
@@ -71,7 +71,7 @@ public class PoliceAI : MonoBehaviour
         Transform kitchen = points["Kitchen"];
         Transform bathRoom = points["BathRoom"];
 
-        float threshold = 0.05f; // distance tolerance
+        float threshold = 0.07f; // distance tolerance
         Vector3 policePos = police.position;
 
         if (timer >= shiftEndTime)
@@ -82,10 +82,9 @@ public class PoliceAI : MonoBehaviour
             return targetPos;
         }
 
-        if (timer < shiftStartTime)
+        if (timer < shiftStartTime && targetPos != based.position)
         {
             targetPos = based.position;
-            return targetPos;
         }
 
         if (Vector3.Distance(policePos, based.position) < threshold)
@@ -151,25 +150,25 @@ public class PoliceAI : MonoBehaviour
     private void Move()
     {
         Vector3 dir = targetPos - police.position;
-        if (dir.magnitude <= speed * Time.deltaTime)
+
+        if (dir.magnitude > 0.1f)
         {
-            police.transform.position = targetPos;
-        }
+            Vector3 move = dir.normalized * speed * Time.deltaTime;
+            if (move.magnitude > dir.magnitude) move = dir; // prevent overshoot
+            police.position += move;
 
-        dir.Normalize();
-
-        police.transform.position += dir * speed * Time.deltaTime;
-
-        if (dir != Vector3.zero)
-        {
             Quaternion targetRotation = Quaternion.LookRotation(-dir);
             police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
+        }
+        else
+        {
+            police.rotation = Quaternion.Slerp(police.rotation, Quaternion.Euler(0, -60, 0), Time.deltaTime * 3f);
         }
     }
 
     private RaycastHit Observe()
     {
-        Vector3 origin = transform.position + Vector3.up * 0.501f;
+        Vector3 origin = transform.position + Vector3.up * 0.125f;
         float halfAngle = coneAngle / 2f;
 
         RaycastHit hit = default;
@@ -182,7 +181,10 @@ public class PoliceAI : MonoBehaviour
             // Rotate forward around the up axis for horizontal sweep
             Vector3 direction = Quaternion.Euler(0, angle, 0) * -transform.forward;
 
-            if (Physics.SphereCast(origin, 1f, direction, out RaycastHit rayHit, distance))
+            int playerLayer = LayerMask.NameToLayer("Player");
+            int layerMask = ~(1 << playerLayer);
+
+            if (Physics.SphereCast(origin, radius: 0.25f, direction, out RaycastHit rayHit, distance, layerMask, QueryTriggerInteraction.Ignore))
             {
                 hit = rayHit;
             }
@@ -196,17 +198,5 @@ public class PoliceAI : MonoBehaviour
     private void Loss()
     {
         Debug.Log("YOU LOST /n SO BAD /n LEAVE");
-    }
-
-    private Vector2 RotateVector(Vector2 v, float degrees)
-    {
-        float rad = degrees * Mathf.Deg2Rad;
-        float sin = Mathf.Sin(rad);
-        float cos = Mathf.Cos(rad);
-
-        return new Vector2(
-            cos * v.x - sin * v.y,
-            sin * v.x + cos * v.y
-        );
     }
 }
