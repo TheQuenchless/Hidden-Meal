@@ -5570,6 +5570,7 @@ MonoBehaviour:
   drugIngredient: {fileID: 3502864818880836489, guid: 466a41811c4d48c95b41aeca762264a0, type: 3}
   grabbingThrowing: {fileID: 1172621071}
   sl: {fileID: 1869004293}
+  saveForLoadingScenes: {fileID: 1869004294}
 --- !u!1 &1230789678
 GameObject:
   m_ObjectHideFlags: 0
@@ -8030,6 +8031,7 @@ GameObject:
   - component: {fileID: 1869004291}
   - component: {fileID: 1869004292}
   - component: {fileID: 1869004293}
+  - component: {fileID: 1869004294}
   m_Layer: 0
   m_Name: UIscripts
   m_TagString: Untagged
@@ -8143,6 +8145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a0fcda7519a31409c128c5a67f9ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+--- !u!114 &1869004294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869004286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc466a47b708ce24d9105f59372683c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveForLoadingScenes
+  player: {fileID: 1172621063}
+  wallet: {fileID: 1172621072}
 --- !u!1 &1878934025
 GameObject:
   m_ObjectHideFlags: 0
