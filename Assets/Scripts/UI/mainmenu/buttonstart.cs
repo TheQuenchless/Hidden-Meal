@@ -5,6 +5,7 @@ public class buttonstart : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialpanle;
     [SerializeField] private GameObject settingspanle;
+    [SerializeField] private GameObject losspanle;
     [SerializeField] private SceneLoader sl;
     
 
@@ -12,14 +13,31 @@ public class buttonstart : MonoBehaviour
     {
         tutorialpanle.SetActive(false);
         settingspanle.SetActive(false);
+        losspanle.SetActive(false);
     }
 
     void Start()
     {
         CloseMenuePanles();
-        
+        if(PlayerPrefs.GetString("loss") == "true")
+        {
+            PlayerPrefs.DeleteKey("loss");
+            PlayerPrefs.Save();
+
+
+            losspanle.SetActive(true);
+        }
     }
 
+    public void btnOk()
+    {
+        losspanle.SetActive(false);
+    }
+
+    public void delbtn()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     
 
     public void Tutorialbtn()

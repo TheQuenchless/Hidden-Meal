@@ -179,6 +179,9 @@ public class PoliceAI : MonoBehaviour
 
     private void Loss()
     {
+        PlayerPrefs.SetString("loss","true");
+        PlayerPrefs.Save();
+        
         sl.Loadscene("MainMenu");
         sfl.DelAllData();
         Debug.Log("YOU LOST /n SO BAD /n LEAVE");

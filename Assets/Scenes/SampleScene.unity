@@ -7552,6 +7552,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1426109789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1526858729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939347321206234710, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+      propertyPath: m_Name
+      value: DrugLiquid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
 --- !u!1 &1529069054
 GameObject:
   m_ObjectHideFlags: 0
@@ -9750,67 +9807,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &2270534464491707705
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.40176338
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939347321206234710, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_Name
-      value: DrugLiquid
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939347321206234710, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
 --- !u!1001 &3416609427013487882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10014,7 +10010,6 @@ SceneRoots:
   - {fileID: 1361178584}
   - {fileID: 1172621066}
   - {fileID: 963194228}
-  - {fileID: 2270534464491707705}
   - {fileID: 3416609427013487882}
   - {fileID: 1355756991}
   - {fileID: 3745622627681918036}
@@ -10032,3 +10027,4 @@ SceneRoots:
   - {fileID: 1366419342}
   - {fileID: 1869004288}
   - {fileID: 1146533946}
+  - {fileID: 1526858729}
