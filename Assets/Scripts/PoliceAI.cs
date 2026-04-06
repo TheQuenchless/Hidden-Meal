@@ -141,7 +141,7 @@ public class PoliceAI : MonoBehaviour
         }
         else
         {
-            Quaternion targetRotation = Quaternion.Euler(0, -60, 0);
+            Quaternion targetRotation = Quaternion.Euler(0, -65, 0);
             police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
         }
 
