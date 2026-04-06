@@ -36,7 +36,11 @@ public class PoliceAI : MonoBehaviour
 
         GetTime();
 
-        if (hit.collider != null && hit.collider.CompareTag("New tag"))
+        bool validItem = hit.collider != null &&
+                 hit.collider.CompareTag("New tag") &&
+                 (!hit.collider.TryGetComponent(out DrugIngredient ingredient) || !ingredient.bought);
+
+        if (validItem)
         {
             Loss();
         }
@@ -139,7 +143,7 @@ public class PoliceAI : MonoBehaviour
             police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
         }
 
-        Debug.Log(targetPos);
+        //Debug.Log(targetPos);
     }
 
     private RaycastHit Observe()
