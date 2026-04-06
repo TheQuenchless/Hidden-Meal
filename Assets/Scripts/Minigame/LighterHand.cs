@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class LighterHand : MonoBehaviour
 {
-    [SerializeField] private float accel = 0.2f;
-    [SerializeField] private float friction = 0.98f;
+    [SerializeField] private float accel = 0.25f;
+    [SerializeField] private float friction = 0.97f;
     private Vector2 velocity;
 
     void Update()

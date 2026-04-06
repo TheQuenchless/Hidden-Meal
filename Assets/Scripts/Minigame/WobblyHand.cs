@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class WobblyHand : MonoBehaviour
 {
-    [SerializeField] private float accel = 0.15f;
-    [SerializeField] private float friction = 0.98f;
+    [SerializeField] private float accel = 0.1f;
+    [SerializeField] private float friction = 0.985f;
     [SerializeField] private float gameLength = 10f;
     [SerializeField] private Collider fire;
     [SerializeField] private SceneLoader sl;
