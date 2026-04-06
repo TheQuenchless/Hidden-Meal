@@ -41,13 +41,13 @@ public class JunkieAI : MonoBehaviour
     {
         shiftTimer = police.shiftTimer;
 
-        if (houseTrigger.nonCollidingTargets.Count == 0 || shiftTimer < shiftStartTime / 4)
+        if (shiftTimer < shiftStartTime / 4)
         {
             targetPos = idlePos;
             MoveToTarget();
             return;
         }
-        else if (houseTrigger.nonCollidingTargets.Count == 0 || (shiftTimer > shiftStartTime / 4 && shiftTimer < shiftStartTime))
+        else if (shiftTimer > shiftStartTime / 4 && shiftTimer < shiftStartTime)
         {
             targetPos = awayPos;
             MoveToTarget();
