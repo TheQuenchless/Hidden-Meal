@@ -5,6 +5,7 @@ public class SaveForLoadingScenes : MonoBehaviour
 {
     [SerializeField]private GameObject player;
     [SerializeField]private Wallet wallet;
+    [SerializeField]private PoliceAI policeAI;
     public void SaveAllData()
     {
         Vector3 pos = player.transform.position;
@@ -14,12 +15,15 @@ public class SaveForLoadingScenes : MonoBehaviour
 
         PlayerPrefs.SetInt("wallet",wallet.money);
 
+        PlayerPrefs.SetFloat("time",policeAI.shiftTimer);
+
         PlayerPrefs.Save();
     }
 
     public void DelAllData()
     {
         PlayerPrefs.DeleteKey("wallet");
+        PlayerPrefs.DeleteKey("time");
         PlayerPrefs.DeleteKey("y");
         PlayerPrefs.DeleteKey("x");
         PlayerPrefs.DeleteKey("z");
@@ -27,10 +31,10 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveHeldItem(float liquidAmount, int plays)
+    public void SaveHeldItem(float liquidAmount,int plays)
     {
-        PlayerPrefs.SetFloat("held_liquid", liquidAmount);
         PlayerPrefs.SetInt("plays", plays);
+        PlayerPrefs.SetFloat("held_liquid", liquidAmount);
         PlayerPrefs.Save();
     }
 }
