@@ -8895,6 +8895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PoliceAI
   map: {fileID: 778060297}
   sl: {fileID: 1869004293}
+  sfl: {fileID: 1869004294}
   speed: 3
   shiftTimer: 0
   shiftStartTime: 90

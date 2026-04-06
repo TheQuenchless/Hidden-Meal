@@ -12,9 +12,9 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private SaveForLoadingScenes sfl;
     [SerializeField] private float speed = 3f;
     private Transform police;
-    private float distance = 8f;
-    private float coneAngle = 75f;
-    private int rayCount = 40;
+    private float distance = 12f;
+    private float coneAngle = 85f;
+    private int rayCount = 60;
     [HideInInspector]public float shiftTimer = 0f;
     public int shiftStartTime = 90;
     public int shiftEndTime = 115;
