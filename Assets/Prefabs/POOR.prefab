@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1294967683000903763}
   - component: {fileID: 6413672172262458722}
   - component: {fileID: 6421732517640964979}
+  - component: {fileID: 2732655663713140027}
   m_Layer: 0
   m_Name: POOR
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8118705468055592536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 41.393, z: 0}
+  m_LocalPosition: {x: -0.66646, y: 0, z: -1.64255}
   m_LocalScale: {x: 1.8324001, y: 0.45810002, z: 1.8324001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -126,3 +127,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611cc4605e74e13eb9c5526b9d62317f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Popup
+--- !u!114 &2732655663713140027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118705468055592536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682236b8d310c659b0cd97eb81c183a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Billboard

@@ -14,8 +14,5 @@ public class Popup : MonoBehaviour
         transform.position += new Vector3(rand.x * speedX, speedY, rand.z * speedX);
         speedY *= 0.9f;
         speedX *= 0.85f;
-
-        transform.LookAt(Camera.main.transform.position);
-        transform.Rotate(0, 180, 0);
     }
 }
