@@ -5,7 +5,6 @@ public class SaveForLoadingScenes : MonoBehaviour
 {
     [SerializeField]private GameObject player;
     [SerializeField]private Wallet wallet;
-    [SerializeField]private int drugIngredient;
     public void SaveAllData()
     {
         Vector3 pos = player.transform.position;
@@ -28,4 +27,9 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveHeldItem(float liquidAmount)
+    {
+        PlayerPrefs.SetFloat("held_liquid", liquidAmount);
+        PlayerPrefs.Save();
+    }
 }

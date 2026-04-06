@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     [SerializeField] private GameObject drugIngredient;
     [SerializeField] private GrabbingThrowing grabbingThrowing;
     [SerializeField] private SceneLoader sl;
+    [SerializeField] private SaveForLoadingScenes saveForLoadingScenes;
 
     private bool interactQueued = false;
     private bool billboard = false;
@@ -53,8 +54,49 @@ public class Interact : MonoBehaviour
 
         if (interactQueued)
         {
+            PrepareHeldItem();
+            Liquid liquid = held.GetComponentInChildren<Liquid>();
+            float amount = (liquid != null) ? liquid.liquidLevel : 1f;
+
+            saveForLoadingScenes.SaveHeldItem(amount);
             sl.Loadscene("Minigame");
             interactQueued = false;
+        }
+    }
+
+    private void PrepareHeldItem()
+    {
+        GameObject held = grabbingThrowing.heldItem;
+        if (held == null) return;
+
+        float liquidAmount = 1f;
+
+        // Check if it already has Liquid
+        if (held.TryGetComponent<Liquid>(out var existingLiquid))
+        {
+            liquidAmount = existingLiquid.liquidLevel;
+        }
+
+        // If it does NOT have Liquid, replace with drug prefab
+        if (!held.TryGetComponent<Liquid>(out _))
+        {
+            GameObject newDrug = Instantiate(drug, held.transform.position, held.transform.rotation);
+
+            // Assign liquid = 1 (default)
+            Liquid newLiquid = newDrug.GetComponentInChildren<Liquid>();
+            if (newLiquid != null)
+            {
+                newLiquid.liquidLevel = 1f;
+            }
+
+            Destroy(held);
+            grabbingThrowing.heldItem = newDrug;
+        }
+        else
+        {
+            // Ensure value carries over (optional safety)
+            Liquid l = held.GetComponent<Liquid>();
+            l.liquidLevel = liquidAmount;
         }
     }
 

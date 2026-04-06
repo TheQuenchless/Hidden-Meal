@@ -6,6 +6,7 @@ public class WobblyHand : MonoBehaviour
     [SerializeField] private float friction = 0.98f;
     [SerializeField] private float gameLength = 10f;
     [SerializeField] private Collider fire;
+    [SerializeField] private SceneLoader sl;
     private Liquid liquid;
     private float timer;
     private Vector2 velocity;
@@ -14,6 +15,15 @@ public class WobblyHand : MonoBehaviour
     void Start()
     {
         liquid = GetComponentInChildren<Liquid>();
+
+        if (liquid != null)
+        {
+            liquid.liquidLevel = PlayerPrefs.GetFloat("held_liquid", 1f);
+        }
+        else
+        {
+            Debug.LogError("No Liquid component found!");
+        }
     }
 
     void Update()
@@ -39,6 +49,7 @@ public class WobblyHand : MonoBehaviour
 
     private void EndGame()
     {
+        sl.Loadscene("SampleScene");
         Debug.Log("game ended. leave");
     }
 
