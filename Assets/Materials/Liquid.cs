@@ -6,6 +6,7 @@ public class Liquid : MonoBehaviour
     Renderer rend;
     [Range(0, 1)]
     public float liquidLevel = 0.5f;
+    public int plays = 0;
 
     void Start()
     {

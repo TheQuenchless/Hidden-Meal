@@ -27,9 +27,10 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveHeldItem(float liquidAmount)
+    public void SaveHeldItem(float liquidAmount, int plays)
     {
         PlayerPrefs.SetFloat("held_liquid", liquidAmount);
+        PlayerPrefs.SetInt("plays", plays);
         PlayerPrefs.Save();
     }
 }

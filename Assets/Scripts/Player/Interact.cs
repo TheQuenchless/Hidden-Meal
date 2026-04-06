@@ -21,7 +21,11 @@ public class Interact : MonoBehaviour
     {
         GameObject held = grabbingThrowing.heldItem;
 
-        bool validItem = held != null && held.CompareTag("New tag");
+        Liquid liquid = held != null ? held.GetComponentInChildren<Liquid>() : null;
+
+        bool hasPlaysLeft = (liquid == null) || (liquid.plays < 3);
+
+        bool validItem = held != null && held.CompareTag("New tag") && hasPlaysLeft;
 
         if (!validItem)
         {
@@ -54,11 +58,36 @@ public class Interact : MonoBehaviour
 
         if (interactQueued)
         {
-            PrepareHeldItem();
-            Liquid liquid = held.GetComponentInChildren<Liquid>();
-            float amount = (liquid != null) ? liquid.liquidLevel : 1f;
+            if (held == null)
+            {
+                interactQueued = false;
+                return;
+            }
 
-            saveForLoadingScenes.SaveHeldItem(amount);
+            PrepareHeldItem();
+
+            held = grabbingThrowing.heldItem;
+            liquid = held != null ? held.GetComponentInChildren<Liquid>() : null;
+
+            int plays = 0;
+            float amount = 1f;
+
+            if (liquid != null)
+            {
+                liquid.plays++;
+                plays = liquid.plays;
+
+                if (plays >= 3)
+                {
+                    interactQueued = false;
+                    return;
+                }
+
+                amount = liquid.liquidLevel;
+            }
+
+            saveForLoadingScenes.SaveHeldItem(amount, plays);
+
             sl.Loadscene("Minigame");
             interactQueued = false;
         }
@@ -69,20 +98,13 @@ public class Interact : MonoBehaviour
         GameObject held = grabbingThrowing.heldItem;
         if (held == null) return;
 
-        float liquidAmount = 1f;
-
-        // Check if it already has Liquid
-        if (held.TryGetComponent<Liquid>(out var existingLiquid))
-        {
-            liquidAmount = existingLiquid.liquidLevel;
-        }
+        Liquid existingLiquid = held.GetComponentInChildren<Liquid>();
 
         // If it does NOT have Liquid, replace with drug prefab
-        if (!held.TryGetComponent<Liquid>(out _))
+        if (existingLiquid == null)
         {
             GameObject newDrug = Instantiate(drug, held.transform.position, held.transform.rotation);
 
-            // Assign liquid = 1 (default)
             Liquid newLiquid = newDrug.GetComponentInChildren<Liquid>();
             if (newLiquid != null)
             {
@@ -91,12 +113,6 @@ public class Interact : MonoBehaviour
 
             Destroy(held);
             grabbingThrowing.heldItem = newDrug;
-        }
-        else
-        {
-            // Ensure value carries over (optional safety)
-            Liquid l = held.GetComponent<Liquid>();
-            l.liquidLevel = liquidAmount;
         }
     }
 
