@@ -15,15 +15,6 @@ public class WobblyHand : MonoBehaviour
     void Start()
     {
         liquid = GetComponentInChildren<Liquid>();
-
-        if (liquid != null)
-        {
-            liquid.liquidLevel = PlayerPrefs.GetFloat("held_liquid", 1f);
-        }
-        else
-        {
-            Debug.LogError("No Liquid component found!");
-        }
     }
 
     void Update()
@@ -69,7 +60,7 @@ public class WobblyHand : MonoBehaviour
         if (collision.collider == fire)
         {
             float endTime = gameLength * 0.75f;
-            float drainRate = 0.32f / endTime; // per second
+            float drainRate = 0.99f / endTime; // per second
 
             liquid.liquidLevel -= drainRate * Time.deltaTime;
         }
