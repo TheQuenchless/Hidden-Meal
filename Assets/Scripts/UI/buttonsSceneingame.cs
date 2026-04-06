@@ -9,6 +9,7 @@ public class buttonsSceneingame : MonoBehaviour
     [SerializeField]private OneBit shader;
     [SerializeField]private GameObject setting;
     [SerializeField]private SceneLoader sl;
+    [SerializeField]private SaveForLoadingScenes sfl;
     void Start()
     {
         shader.downSamples = 2;
@@ -30,7 +31,7 @@ public class buttonsSceneingame : MonoBehaviour
 
     public void MainMenueBtn()
     {
-        //add script deleathing playerpos befor 
+        sfl.DelAllData();
         sl.Loadscene("MainMenu");
     }
 }
