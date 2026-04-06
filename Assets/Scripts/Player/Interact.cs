@@ -88,6 +88,8 @@ public class Interact : MonoBehaviour
 
             saveForLoadingScenes.SaveHeldItem(amount, plays);
 
+            saveForLoadingScenes.SaveAllData();
+
             sl.Loadscene("Minigame");
             interactQueued = false;
         }
