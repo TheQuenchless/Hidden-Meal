@@ -60,7 +60,6 @@ public class Interact : MonoBehaviour
         {
             if (held == null)
             {
-                interactQueued = false;
                 return;
             }
 
@@ -79,7 +78,6 @@ public class Interact : MonoBehaviour
 
                 if (plays >= 3)
                 {
-                    interactQueued = false;
                     return;
                 }
 
@@ -91,8 +89,9 @@ public class Interact : MonoBehaviour
             saveForLoadingScenes.SaveAllData();
 
             sl.Loadscene("Minigame");
-            interactQueued = false;
         }
+
+        interactQueued = false;
     }
 
     
