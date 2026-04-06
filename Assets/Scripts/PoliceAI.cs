@@ -9,6 +9,7 @@ public class PoliceAI : MonoBehaviour
 {
     [SerializeField] private GameObject map;
     [SerializeField] private SceneLoader sl;
+    [SerializeField] private SaveForLoadingScenes sfl;
     [SerializeField] private float speed = 3f;
     private Transform police;
     private float distance = 8f;
@@ -179,6 +180,7 @@ public class PoliceAI : MonoBehaviour
     private void Loss()
     {
         sl.Loadscene("MainMenu");
+        sfl.DelAllData();
         Debug.Log("YOU LOST /n SO BAD /n LEAVE");
     }
 }
