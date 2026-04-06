@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class SaveForLoadingScenes : MonoBehaviour
@@ -20,6 +21,15 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.SetFloat("time",policeAI.shiftTimer);
         int drugs = items.Length ;
         PlayerPrefs.SetInt("drug",drugs -- );
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            Vector3 position = items[i].transform.position;
+
+            PlayerPrefs.SetFloat("drug_"+i+"_x",position.x);
+            PlayerPrefs.SetFloat("drug_"+i+"_y",position.y);
+            PlayerPrefs.SetFloat("drug_"+i+"_z",position.z);
+        }
         Debug.Log("found drugs:"+items.Length);
 
         PlayerPrefs.Save();
@@ -27,6 +37,14 @@ public class SaveForLoadingScenes : MonoBehaviour
 
     public void DelAllData()
     {
+        items = FindObjectsOfType<Drugmarker>();
+        for (int i = 0; i < items.Length; i++)
+        {
+            PlayerPrefs.DeleteKey("drug_"+i+"_x");
+            PlayerPrefs.DeleteKey("drug_"+i+"_y");
+            PlayerPrefs.DeleteKey("drug_"+i+"_z");
+        }
+        int drugs = items.Length;
         PlayerPrefs.DeleteKey("wallet");
         PlayerPrefs.DeleteKey("time");
         PlayerPrefs.DeleteKey("y");

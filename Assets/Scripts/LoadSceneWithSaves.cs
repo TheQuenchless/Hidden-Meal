@@ -22,7 +22,12 @@ public class LoadSceneWithSaves : MonoBehaviour
             Debug.Log(amountofdrugs);
             for (int i = 0; i < amountofdrugs; i++)
             {
-                Instantiate(drug,spawner.position,spawner.rotation);
+                float x = PlayerPrefs.GetFloat("drug_"+i+"_x",spawner.position.x);
+                float y = PlayerPrefs.GetFloat("drug_"+i+"_y",spawner.position.y);
+                float z = PlayerPrefs.GetFloat("drug_"+i+"_y",spawner.position.y);
+
+                Vector3 pos = new Vector3(x,y,z);
+                Instantiate(drug,pos,Quaternion.identity);
             }
 
 

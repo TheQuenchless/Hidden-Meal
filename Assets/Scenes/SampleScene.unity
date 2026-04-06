@@ -8490,6 +8490,7 @@ MonoBehaviour:
   mainVolumeSlider: {fileID: 1841043525}
   sfxVolumeSlider: {fileID: 872227740}
   musicVolumeSlider: {fileID: 2112873118}
+  am: {fileID: 353536850}
   lightcolore: {fileID: 1372819323}
   darkcolore: {fileID: 779263071}
   shader: {fileID: 963194230}

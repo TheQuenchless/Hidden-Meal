@@ -16,6 +16,7 @@ public class settingsPanle : MonoBehaviour
     [SerializeField]private Slider mainVolumeSlider;
     [SerializeField]private Slider sfxVolumeSlider;
     [SerializeField]private Slider musicVolumeSlider;
+    [SerializeField]private AudioManager am;
 
     [Header("Color settings")]
     [SerializeField]private TMP_InputField lightcolore;
@@ -84,6 +85,10 @@ public class settingsPanle : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolum",musicVolumeSlider.value);
 
         PlayerPrefs.Save();
+
+        am.mastervolume = PlayerPrefs.GetFloat("mainVolum");
+        am.SetChannelVolume(0,PlayerPrefs.GetFloat("musicVolum"));
+        am.SetChannelVolume(1,PlayerPrefs.GetFloat("sfxvolume",1f));
     }
     
     //===================================================================
