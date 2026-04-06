@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,14 +10,12 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private float speed = 3f;
     private Transform police;
-    private float distance = 25f;
-    private float coneAngle = 80f;
-    private int rayCount = 80;
+    private float distance = 8f;
+    private float coneAngle = 75f;
+    private int rayCount = 40;
     [HideInInspector]public float shiftTimer = 0f;
-    public int shiftStartTime = 120;
-    public int shiftEndTime = 140;
-    private bool checkedBed = false;
-    private bool checkedBath = false;
+    public int shiftStartTime = 90;
+    public int shiftEndTime = 115;
     Vector3 targetPos;
     private Dictionary<string, Transform> points;
     void Start()
@@ -76,15 +75,14 @@ public class PoliceAI : MonoBehaviour
 
         if (timer >= shiftEndTime)
         {
-            checkedBath = false;
-            checkedBed = false;
             targetPos = based.position;
             return targetPos;
         }
 
-        if (timer < shiftStartTime && targetPos != based.position)
+        if (timer < shiftStartTime)
         {
             targetPos = based.position;
+            return targetPos;
         }
 
         if (Vector3.Distance(policePos, based.position) < threshold)
@@ -109,39 +107,11 @@ public class PoliceAI : MonoBehaviour
         }
         else if (Vector3.Distance(policePos, livingRoom.position) < threshold)
         {
-            if (!checkedBed)
-            {
-                int choice = Random.Range(1, 4);
-                if (choice == 1)
-                {
-                    targetPos =  kitchen.position;
-                }
-                else if (choice == 2)
-                {
-                    targetPos =  bedRoom.position;
-                }
-                else
-                {
-                    targetPos =  entrance.position;
-                }
-            }
-            else
-            {
-                targetPos = (Random.value < 0.5f) ? entrance.position : kitchen.position;
-            }
+            targetPos = (Random.value < 0.5f) ? bedRoom.position : kitchen.position;
         }
         else if (Vector3.Distance(policePos, kitchen.position) < threshold)
         {
-            if (!checkedBath)
-            {
-                targetPos = (Random.value < 0.5f) ? livingRoom.position : bathRoom.position;
-                if (targetPos == bathRoom.position) checkedBath = true;
-            }
-            else
-            {
-                targetPos = livingRoom.position;
-                if (targetPos == bathRoom.position) checkedBed = true;
-            }
+            targetPos = (Random.value < 0.5f) ? livingRoom.position : bathRoom.position;
         }
 
         return targetPos;
@@ -151,19 +121,25 @@ public class PoliceAI : MonoBehaviour
     {
         Vector3 dir = targetPos - police.position;
 
-        if (dir.magnitude > 0.1f)
+        Vector3 move = dir.normalized * speed * Time.deltaTime;
+        if (move.magnitude > dir.magnitude)
         {
-            Vector3 move = dir.normalized * speed * Time.deltaTime;
-            if (move.magnitude > dir.magnitude) move = dir; // prevent overshoot
-            police.position += move;
+            move = dir;
+        }
+        police.position += move;
 
+        if (dir.magnitude > 0)
+        {
             Quaternion targetRotation = Quaternion.LookRotation(-dir);
             police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
         }
         else
         {
-            police.rotation = Quaternion.Slerp(police.rotation, Quaternion.Euler(0, -60, 0), Time.deltaTime * 3f);
+            Quaternion targetRotation = Quaternion.Euler(0, -60, 0);
+            police.rotation = Quaternion.Slerp(police.rotation, targetRotation, Time.deltaTime * 3f);
         }
+
+        Debug.Log(targetPos);
     }
 
     private RaycastHit Observe()
