@@ -4,7 +4,7 @@ public class WobblyHand : MonoBehaviour
 {
     [SerializeField] private float accel = 0.1f;
     [SerializeField] private float friction = 0.985f;
-    [SerializeField] private float gameLength = 10f;
+    [SerializeField] public float gameLength = 10f;
     [SerializeField] private Collider fire;
     [SerializeField] private SceneLoader sl;
     private Liquid liquid;

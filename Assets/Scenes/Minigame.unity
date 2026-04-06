@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529387890}
   - component: {fileID: 529387889}
+  - component: {fileID: 529387891}
   m_Layer: 0
   m_Name: scripts
   m_TagString: Untagged
@@ -215,6 +216,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529387891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529387888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00e0b297c8992744bff9f70b1eb9c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::saveInminigame
+  wh: {fileID: 1400982024}
 --- !u!1 &647892110
 GameObject:
   m_ObjectHideFlags: 0

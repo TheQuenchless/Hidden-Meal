@@ -64,7 +64,7 @@ public class Interact : MonoBehaviour
                 return;
             }
 
-            PrepareHeldItem();
+           
 
             held = grabbingThrowing.heldItem;
             liquid = held != null ? held.GetComponentInChildren<Liquid>() : null;
@@ -95,28 +95,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    private void PrepareHeldItem()
-    {
-        GameObject held = grabbingThrowing.heldItem;
-        if (held == null) return;
-
-        Liquid existingLiquid = held.GetComponentInChildren<Liquid>();
-
-        // If it does NOT have Liquid, replace with drug prefab
-        if (existingLiquid == null)
-        {
-            GameObject newDrug = Instantiate(drug, held.transform.position, held.transform.rotation);
-
-            Liquid newLiquid = newDrug.GetComponentInChildren<Liquid>();
-            if (newLiquid != null)
-            {
-                newLiquid.liquidLevel = 1f;
-            }
-
-            Destroy(held);
-            grabbingThrowing.heldItem = newDrug;
-        }
-    }
+    
 
     public void OnInteract(InputAction.CallbackContext context)
     {

@@ -6,8 +6,10 @@ public class SaveForLoadingScenes : MonoBehaviour
     [SerializeField]private GameObject player;
     [SerializeField]private Wallet wallet;
     [SerializeField]private PoliceAI policeAI;
+    private Drugmarker[] items ;
     public void SaveAllData()
     {
+        items = FindObjectsOfType<Drugmarker>();
         Vector3 pos = player.transform.position;
         PlayerPrefs.SetFloat("x",pos.x);
         PlayerPrefs.SetFloat("y",pos.y);
@@ -16,6 +18,9 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.SetInt("wallet",wallet.money);
 
         PlayerPrefs.SetFloat("time",policeAI.shiftTimer);
+        int drugs = items.Length ;
+        PlayerPrefs.SetInt("drug",drugs -- );
+        Debug.Log("found drugs:"+items.Length);
 
         PlayerPrefs.Save();
     }
@@ -27,6 +32,7 @@ public class SaveForLoadingScenes : MonoBehaviour
         PlayerPrefs.DeleteKey("y");
         PlayerPrefs.DeleteKey("x");
         PlayerPrefs.DeleteKey("z");
+        PlayerPrefs.DeleteKey("drug");
 
         PlayerPrefs.Save();
     }
