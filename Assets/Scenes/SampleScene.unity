@@ -8032,6 +8032,7 @@ GameObject:
   - component: {fileID: 1869004292}
   - component: {fileID: 1869004293}
   - component: {fileID: 1869004294}
+  - component: {fileID: 1869004295}
   m_Layer: 0
   m_Name: UIscripts
   m_TagString: Untagged
@@ -8161,6 +8162,22 @@ MonoBehaviour:
   player: {fileID: 1172621063}
   wallet: {fileID: 1172621072}
   policeAI: {fileID: 2008642058}
+--- !u!114 &1869004295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869004286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15933661f630a884582a005ea9e01c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadSceneWithSaves
+  policeAI: {fileID: 2008642058}
+  wallet: {fileID: 1172621072}
+  player: {fileID: 1172621063}
+  sfl: {fileID: 1869004294}
 --- !u!1 &1878934025
 GameObject:
   m_ObjectHideFlags: 0
