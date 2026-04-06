@@ -8160,7 +8160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveForLoadingScenes
   player: {fileID: 1172621063}
   wallet: {fileID: 1172621072}
-  policeAI: {fileID: 0}
+  policeAI: {fileID: 2008642058}
 --- !u!1 &1878934025
 GameObject:
   m_ObjectHideFlags: 0
