@@ -17,7 +17,8 @@ public class JunkieAI : MonoBehaviour
 
     private float shiftTimer;
     private float shiftStartTime;
-    private Vector3 idlePos;
+    private Vector3 idlePos = new Vector3(9, 0.5f, 4);
+    private Vector3 awayPos;
     private Vector3 targetPos;
     private PoliceAI police;
     private Wallet wallet;
@@ -32,16 +33,22 @@ public class JunkieAI : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        idlePos = transform.position;
+        awayPos = transform.position;
     }
 
     void Update()
     {
         shiftTimer = police.shiftTimer;
 
-        if (houseTrigger.nonCollidingTargets.Count == 0 || shiftTimer < shiftStartTime)
+        if (houseTrigger.nonCollidingTargets.Count == 0 || shiftTimer < shiftStartTime / 4)
         {
             targetPos = idlePos;
+            MoveToTarget();
+            return;
+        }
+        else if (houseTrigger.nonCollidingTargets.Count == 0 || (shiftTimer > shiftStartTime / 4 && shiftTimer < shiftStartTime))
+        {
+            targetPos = awayPos;
             MoveToTarget();
             return;
         }
