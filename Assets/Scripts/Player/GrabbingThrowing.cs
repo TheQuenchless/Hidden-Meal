@@ -8,6 +8,7 @@ public class GrabbingThrowing : MonoBehaviour
     [SerializeField] private Transform hands;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip throwSound;
+    [SerializeField] private GameObject Gameobjplayer;
     private Transform player;
     BasicLook basicLook;
     MoveHands moveHands;
@@ -69,6 +70,7 @@ public class GrabbingThrowing : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
 
+            Gameobjplayer.tag = heldItem.tag;
             //Debug.Log($"heldItem: {heldItem}");
         }
     }
@@ -84,6 +86,8 @@ public class GrabbingThrowing : MonoBehaviour
 
         rb = null;
         heldItem = null;
+        Gameobjplayer.tag = "Player";
+
     }
 
     public void OnGrab(InputAction.CallbackContext context)

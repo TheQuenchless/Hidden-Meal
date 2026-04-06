@@ -15,7 +15,7 @@ public class DrugIngredient : MonoBehaviour
 
     void Awake()
     {
-        wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+        wallet = GameObject.Find("Player").GetComponent<Wallet>();
         counter = GameObject.Find("Counter").GetComponent<Collider>();
 
         audioSource = GameObject.Find("Audio").GetComponentInChildren<AudioSource>();

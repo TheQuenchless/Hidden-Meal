@@ -14,6 +14,7 @@ public class JunkieAI : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip buySound;
     [SerializeField] private AudioClip yoinkSound;
+    [SerializeField] private GameObject playerobj;
 
     private float shiftTimer;
     private float shiftStartTime;
@@ -29,7 +30,7 @@ public class JunkieAI : MonoBehaviour
         police = GameObject.Find("Policeman").GetComponent<PoliceAI>();
         shiftStartTime = police.shiftStartTime;
 
-        wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+        wallet = GameObject.Find("Player").GetComponent<Wallet>();
 
         rb = GetComponent<Rigidbody>();
 
@@ -59,6 +60,8 @@ public class JunkieAI : MonoBehaviour
 
         foreach (var obj in houseTrigger.nonCollidingTargets)
         {
+            if (obj.name == "Player"){continue;}
+
             float dist = Vector3.Distance(transform.position, obj.transform.position);
             if (dist < closestDist)
             {
@@ -82,11 +85,18 @@ public class JunkieAI : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("New tag")) return;
+        if (collision.gameObject.name == "Player")return;
 
         if (shiftTimer >= shiftStartTime)
+        {
             Yoink(collision.gameObject);
+            playerobj.tag = "Player";
+        }
         else
+        {
             Buy(collision.gameObject);
+            playerobj.tag = "Player";
+        }
     }
 
     private void Yoink(GameObject obj)

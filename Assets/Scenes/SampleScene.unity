@@ -4592,7 +4592,7 @@ GameObject:
   - component: {fileID: 1070911154}
   m_Layer: 3
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5194,6 +5194,7 @@ MonoBehaviour:
   hands: {fileID: 1204115852}
   audioSource: {fileID: 1523956617}
   throwSound: {fileID: 8300000, guid: 876a08069d3618d7eabc3905b7349997, type: 3}
+  Gameobjplayer: {fileID: 1172621063}
 --- !u!114 &1172621072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5515,7 +5516,7 @@ GameObject:
   - component: {fileID: 1204115854}
   m_Layer: 3
   m_Name: Hands
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6695,6 +6696,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: m_Name
       value: PlayerModel
@@ -6702,6 +6707,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3154719795325769685, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -6714,6 +6723,10 @@ PrefabInstance:
     - target: {fileID: 8699652204047898494, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699652204047898494, guid: fddcd0c09a2db5b1cbd7368f688f94f0, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6910,7 +6923,7 @@ GameObject:
   - component: {fileID: 1457531158}
   m_Layer: 3
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8508,6 +8521,7 @@ MonoBehaviour:
   audioSource: {fileID: 1523956617}
   buySound: {fileID: 8300000, guid: be7e8ea89fec14f018220daf8d719c46, type: 3}
   yoinkSound: {fileID: 8300000, guid: 876a08069d3618d7eabc3905b7349997, type: 3}
+  playerobj: {fileID: 1172621063}
 --- !u!54 &1973756786
 Rigidbody:
   m_ObjectHideFlags: 0
