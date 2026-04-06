@@ -21,11 +21,7 @@ public class Interact : MonoBehaviour
     {
         GameObject held = grabbingThrowing.heldItem;
 
-        Liquid liquid = held != null ? held.GetComponentInChildren<Liquid>() : null;
-
-        bool hasPlaysLeft = (liquid == null) || (liquid.plays < 3);
-
-        bool validItem = held != null && held.CompareTag("New tag") && hasPlaysLeft;
+        bool validItem = held != null && held.GetComponent<DrugIngredient>();
 
         if (!validItem)
         {
@@ -60,39 +56,14 @@ public class Interact : MonoBehaviour
         {
             if (held == null)
             {
-                interactQueued = false;
                 return;
             }
 
-           
-
-            held = grabbingThrowing.heldItem;
-            liquid = held != null ? held.GetComponentInChildren<Liquid>() : null;
-
-            int plays = 0;
-            float amount = 1f;
-
-            if (liquid != null)
-            {
-                liquid.plays++;
-                plays = liquid.plays;
-
-                if (plays >= 3)
-                {
-                    interactQueued = false;
-                    return;
-                }
-
-                amount = liquid.liquidLevel;
-            }
-
-            saveForLoadingScenes.SaveHeldItem(amount, plays);
-
             saveForLoadingScenes.SaveAllData();
-
             sl.Loadscene("Minigame");
-            interactQueued = false;
         }
+
+        interactQueued = false;
     }
 
     

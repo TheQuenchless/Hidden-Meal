@@ -447,7 +447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6986403128263829102, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
       propertyPath: liquidLevel
-      value: 0.34
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8594312478989878508, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
       propertyPath: m_LocalScale.x
