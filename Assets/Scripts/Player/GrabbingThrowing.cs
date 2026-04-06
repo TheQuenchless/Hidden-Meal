@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,7 @@ public class GrabbingThrowing : MonoBehaviour
     MoveHands moveHands;
     private Vector3 direction;
     private bool actionQueued = false;
-    GameObject heldItem;
+    [NonSerialized] public GameObject heldItem;
     Rigidbody rb;
     void Start()
     {

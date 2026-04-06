@@ -1,6 +1,8 @@
 using System;
+using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttonsSceneingame : MonoBehaviour
 {
@@ -29,6 +31,6 @@ public class buttonsSceneingame : MonoBehaviour
     public void MainMenueBtn()
     {
         //add script deleathing playerpos befor 
-        sl.Loadscene(0);
+        sl.Loadscene("MainMenu");
     }
 }

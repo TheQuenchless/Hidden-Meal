@@ -31,7 +31,7 @@ public class buttonstart : MonoBehaviour
     public void Playbtn()
     {
         CloseMenuePanles();
-        sl.Loadscene(1);
+        sl.Loadscene("SampleScene");
     }
 
     public void Settingbtn()

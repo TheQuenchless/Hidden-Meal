@@ -5566,6 +5566,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interact
   counter: {fileID: 6088500817462971631}
   COOK: {fileID: 2917299748258022699, guid: a98901554d6bc13cf82a297a0c704ebe, type: 3}
+  drug: {fileID: 8939347321206234710, guid: 2db4bfb5391a8043dbd99c198000e0da, type: 3}
+  drugIngredient: {fileID: 3502864818880836489, guid: 466a41811c4d48c95b41aeca762264a0, type: 3}
+  grabbingThrowing: {fileID: 1172621071}
+  sl: {fileID: 1869004293}
 --- !u!1 &1230789678
 GameObject:
   m_ObjectHideFlags: 0
@@ -8025,6 +8029,7 @@ GameObject:
   - component: {fileID: 1869004290}
   - component: {fileID: 1869004291}
   - component: {fileID: 1869004292}
+  - component: {fileID: 1869004293}
   m_Layer: 0
   m_Name: UIscripts
   m_TagString: Untagged
@@ -8126,6 +8131,18 @@ MonoBehaviour:
   shader: {fileID: 963194230}
   setting: {fileID: 1319046280}
   sl: {fileID: 0}
+--- !u!114 &1869004293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869004286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a0fcda7519a31409c128c5a67f9ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1 &1878934025
 GameObject:
   m_ObjectHideFlags: 0

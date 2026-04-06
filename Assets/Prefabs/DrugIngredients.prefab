@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7248984913830643092}
   m_Layer: 0
   m_Name: DrugIngredients
-  m_TagString: Untagged
+  m_TagString: New tag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,6 @@ MonoBehaviour:
   BOUGHT: {fileID: 1896619444011662975, guid: 9aa58ae426e1ea051b9b82ce118a36af, type: 3}
   POOR: {fileID: 8118705468055592536, guid: c1e6ab375f3a015439fe27da5be6db11, type: 3}
   buySound: {fileID: 8300000, guid: be7e8ea89fec14f018220daf8d719c46, type: 3}
-  audioSource: {fileID: 0}
 --- !u!65 &7248984913830643092
 BoxCollider:
   m_ObjectHideFlags: 0
