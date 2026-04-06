@@ -144,7 +144,7 @@ public class PoliceAI : MonoBehaviour
 
     private RaycastHit Observe()
     {
-        Vector3 origin = transform.position + Vector3.up * 0.125f;
+        Vector3 origin = transform.position + Vector3.up * 0.501f;
         float halfAngle = coneAngle / 2f;
 
         RaycastHit hit = default;
@@ -160,7 +160,7 @@ public class PoliceAI : MonoBehaviour
             int playerLayer = LayerMask.NameToLayer("Player");
             int layerMask = ~(1 << playerLayer);
 
-            if (Physics.SphereCast(origin, radius: 0.25f, direction, out RaycastHit rayHit, distance, layerMask, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(origin, radius: 1f, direction, out RaycastHit rayHit, distance, layerMask, QueryTriggerInteraction.Ignore))
             {
                 hit = rayHit;
             }
